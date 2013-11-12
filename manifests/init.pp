@@ -19,7 +19,7 @@ class slim {
   }
 
   augeas { "slim_conf/current_theme":
-    lens    => 'Slim.lns',
+    lens    => 'Spacevars.simple_lns',
     context => "/files${path_slim_conf}",
     incl    => $path_slim_conf,
     onlyif  => "get current_theme != archlinux-simplyblack",
