@@ -1,4 +1,6 @@
 class slim {
+  $path_slim_conf = '/etc/slim.conf'
+
   package { 'slim':
     ensure => installed,
     before => Exec['enable_slim'],
@@ -18,7 +20,8 @@ class slim {
 
   augeas { "slim_conf/current_theme":
     lens    => 'Slim.lns',
-    context => "/files/etc/slim.conf",
+    context => "/files${path_slim_conf}",
+    incl    => $path_slim_conf,
     onlyif  => "get current_theme != archlinux-simplyblack",
     changes => "set current_theme archlinux-simplyblack",
     require => Package['archlinux-themes-slim']
