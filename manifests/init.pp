@@ -18,8 +18,8 @@ class slim {
 
   augeas { "slim_conf/current_theme":
     context => "/files/etc/slim.conf",
-    onlyif  => "get current_theme != archlinux-simplyback",
-    changes => "set current_theme archlinux-simplyback",
+    onlyif  => "get current_theme != archlinux-simplyblack",
+    changes => "set current_theme archlinux-simplyblack",
     require => Package['archlinux-themes-slim']
   }
 }
